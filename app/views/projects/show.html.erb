@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @project.restaurant %>
+</p>
+
+<p>
+  <strong>Food Combo:</strong>
+  <%= @project.foodCombo %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @project.rating %>
+</p>
+
+<%= button_to "Edit", edit_project_path(@project), :id => "open-contacts-dialog-btn",
+    :class => "inbox-sf-add-btn tip", :method => :get %>
+<%= button_to "Back", projects_path, :id => "open-contacts-dialog-btn",
+    :class => "inbox-sf-add-btn tip", :method => :get %>

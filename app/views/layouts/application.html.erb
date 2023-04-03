@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= content_for?(:title) ? yield(:title) : "Food Decider 1000" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Item Info" %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      h1 {text-align: center; border-style: solid; border-color: black; background-color: blue; color: white;}
+      container {border-style: solid;}
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <h1>Food Decider 1000</h1>
+    <p></p>
+    <div class="container" style="border: 3px solid black;">
+    <main role="main">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
+    <p></p>
+    </div>
+  </body>
+</html>

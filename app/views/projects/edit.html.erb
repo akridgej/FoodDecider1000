@@ -1,0 +1,10 @@
+<div class="container" style="border: 3px solid black;">
+<h2>Editing Project</h2>
+
+<%= render 'form', project: @project %>
+
+<%= button_to "Show", @project, :id => "open-contacts-dialog-btn",
+    :class => "inbox-sf-add-btn tip", :method => :get %>
+<%= button_to "Back", projects_path, :id => "open-contacts-dialog-btn",
+    :class => "inbox-sf-add-btn tip", :method => :get %>
+</div>

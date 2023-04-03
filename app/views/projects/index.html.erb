@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    th {text-align: center;}
+    h2 {text-align: center;}
+    table, th, td {border: 1px solid;}
+  </style>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+
+<h2>Favorite Items</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Food Combo</th>
+      <th>Rating (out of 10)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.restaurant %></td>
+        <td><%= project.foodCombo %></td>
+        <td><%= project.rating %></td>
+        <td><%= button_to "Show", project, :id => "open-contacts-dialog-btn",
+              :class => "inbox-sf-add-btn tip", :method => :get %>
+            <%= button_to "Edit", edit_project_path(project), :id => "open-contacts-dialog-btn",
+              :class => "inbox-sf-add-btn tip", :method => :get %>
+            <%= button_to "Delete", project, :id => "open-contacts-dialog-btn",
+              :class => "inbox-sf-add-btn tip", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to "New Project", new_project_path, :id => "open-contacts-dialog-btn",
+    :class => "inbox-sf-add-btn tip", :method => :get %>
+</body>
+</html>
