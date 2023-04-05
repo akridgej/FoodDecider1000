@@ -1,6 +1,16 @@
-<h2>New Project</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
+</style>
+</head>
+<body>
+<h2>New Item</h2>
 
 <%= render 'form', project: @project %>
 
-<%= button_to "Back", projects_path, :id => "open-contacts-dialog-btn",
-    :class => "inbox-sf-add-btn tip", :method => :get %>
+<%= button_to "Back To Home Page", projects_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %>
+</body>
+</html>

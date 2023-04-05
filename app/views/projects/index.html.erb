@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    th {text-align: center;}
-    h2 {text-align: center;}
-    table, th, td {border: 1px solid;}
-  </style>
+<style>
+table, th, td {border: 1px solid black; text-align: center; word-wrap: break-word; width: 600px}
+h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
+btn-primary {display: inline-block; margin: 0 20px; text-align: center;}
+</style>
 </head>
 <body>
-<p id="notice"><%= notice %></p>
 
 <h2>Favorite Items</h2>
 
@@ -16,9 +15,10 @@
   <thead>
     <tr>
       <th>Restaurant</th>
-      <th>Food Combo</th>
+      <th>Combo</th>
       <th>Rating (out of 10)</th>
-      <th colspan="3"></th>
+      <th>Options</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -28,12 +28,15 @@
         <td><%= project.restaurant %></td>
         <td><%= project.foodCombo %></td>
         <td><%= project.rating %></td>
-        <td><%= button_to "Show", project, :id => "open-contacts-dialog-btn",
-              :class => "inbox-sf-add-btn tip", :method => :get %>
-            <%= button_to "Edit", edit_project_path(project), :id => "open-contacts-dialog-btn",
-              :class => "inbox-sf-add-btn tip", :method => :get %>
-            <%= button_to "Delete", project, :id => "open-contacts-dialog-btn",
-              :class => "inbox-sf-add-btn tip", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= button_to "Show Item", project, :id => "open-contacts-dialog-btn",
+          :class => "btn btn-primary", :method => :get %>
+        <p></p>
+        <%= button_to "Edit Item", edit_project_path(project), :id => "open-contacts-dialog-btn",
+          :class => "btn btn-primary", :method => :get %>
+        <p></p>
+        <%= button_to "Delete Item", project, :id => "open-contacts-dialog-btn",
+          :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,6 +45,5 @@
 <br>
 
 <%= button_to "New Project", new_project_path, :id => "open-contacts-dialog-btn",
-    :class => "inbox-sf-add-btn tip", :method => :get %>
+      :class => "btn btn-primary", :method => :get %>
 </body>
-</html>

@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
+</style>
+</head>
+<body>
+<h2>Item Details</h2>
 
 <p>
   <strong>Restaurant:</strong>
@@ -6,16 +14,19 @@
 </p>
 
 <p>
-  <strong>Food Combo:</strong>
+  <strong>Combo:</strong>
   <%= @project.foodCombo %>
 </p>
 
 <p>
-  <strong>Rating:</strong>
+  <strong>Rating (out of 10):</strong>
   <%= @project.rating %>
 </p>
 
-<%= button_to "Edit", edit_project_path(@project), :id => "open-contacts-dialog-btn",
-    :class => "inbox-sf-add-btn tip", :method => :get %>
-<%= button_to "Back", projects_path, :id => "open-contacts-dialog-btn",
-    :class => "inbox-sf-add-btn tip", :method => :get %>
+<%= button_to "Edit Item", edit_project_path(@project), :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %>
+<p></p>
+<%= button_to "Back To Home Page", projects_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %>
+</body>
+</html>
