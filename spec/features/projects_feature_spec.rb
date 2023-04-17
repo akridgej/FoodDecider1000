@@ -1,7 +1,8 @@
 require "rails_helper"
 RSpec.feature "Projects", type: :feature do
     context "Update project" do
-      let(:project) { Project.create(restaurant: "Test title", foodCombo: "Test content", rating: 8.5) }
+      let(:project) { Project.create(restaurant: "Test title", foodCombo: "Test content", rating: 8) }
+      
       before(:each) do
         visit edit_project_path(project)
       end
@@ -9,7 +10,7 @@ RSpec.feature "Projects", type: :feature do
  
       scenario "should be successful" do
         within("form") do
-          fill_in "Combo", with: "New description content"
+          fill_in "Combo", with: "New content"
         end
         click_button "Update Project"
         expect(page).to have_content("")

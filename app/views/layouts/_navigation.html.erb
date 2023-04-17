@@ -4,9 +4,16 @@
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Account</a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Sign In</a></li>
-      <li><a class="dropdown-item" href="#">Sign Up</a></li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="edit_user_registration_path">Edit Profile</a></li>
+        <li><a class="dropdown-item" href="destroy_user_registration_path" method: :delete>Log Out</a></li>
+      </ul>
+    <% else %>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="new_user_session_path">Sign In</a></li>
+        <li><a class="dropdown-item" href="new_user_registration_path">Sign Up</a></li>
+      </ul>
+    <% end %>
   </li>
 </ul>

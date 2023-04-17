@@ -29,14 +29,16 @@ btn-primary {display: inline-block; margin: 0 20px; text-align: center;}
         <td><%= project.foodCombo %></td>
         <td><%= project.rating %></td>
         <td>
-        <%= button_to "Show Item", project, :id => "open-contacts-dialog-btn",
-          :class => "btn btn-primary", :method => :get %>
-        <p></p>
-        <%= button_to "Edit Item", edit_project_path(project), :id => "open-contacts-dialog-btn",
-          :class => "btn btn-primary", :method => :get %>
-        <p></p>
-        <%= button_to "Delete Item", project, :id => "open-contacts-dialog-btn",
-          :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <%= button_to "Show Item", project, :id => "open-contacts-dialog-btn",
+            :class => "btn btn-primary", :method => :get %>
+          <p></p>
+          <%= button_to "Edit Item", edit_project_path(project), :id => "open-contacts-dialog-btn",
+            :class => "btn btn-primary", :method => :get %>
+          <p></p>
+          <%= button_to "Delete Item", project, :id => "open-contacts-dialog-btn",
+            :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+       <% end %>  
       </tr>
     <% end %>
   </tbody>
