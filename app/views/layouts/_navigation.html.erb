@@ -3,16 +3,23 @@
     <a class="nav-link Home" aria-current="page" href="#">Home</a>
   </li>
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Account</a>
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Account</a>
     <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="edit_user_registration_path">Edit Profile</a></li>
-        <li><a class="dropdown-item" href="destroy_user_registration_path" method: :delete>Log Out</a></li>
+        <li><%= button_to "Edit Profile", edit_user_registration_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %></li>
+        <p></p>
+        <li><%= button_to "Log Out", destroy_user_session_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :delete %></li>
       </ul>
     <% else %>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="new_user_session_path">Sign In</a></li>
-        <li><a class="dropdown-item" href="new_user_registration_path">Sign Up</a></li>
+        <li><%= button_to "Sign Up", new_user_registration_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %></li>
+        <p></p>
+        <li><%= button_to "Log In", new_user_session_path, :id => "open-contacts-dialog-btn",
+      :class => "btn btn-primary", :method => :get %></li>
       </ul>
     <% end %>
   </li>

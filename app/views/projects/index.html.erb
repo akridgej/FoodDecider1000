@@ -46,6 +46,8 @@ btn-primary {display: inline-block; margin: 0 20px; text-align: center;}
 
 <br>
 
+<% if user_signed_in? %>
 <%= button_to "New Project", new_project_path, :id => "open-contacts-dialog-btn",
       :class => "btn btn-primary", :method => :get %>
+<% end %>
 </body>
