@@ -1,15 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/root/FoodDecider1000/app/models/project.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/root/FoodDecider1000/app/controllers/projects_controller.rb": {
         "lines": [
           1,
@@ -18,7 +9,7 @@
           null,
           null,
           1,
-          1,
+          4,
           null,
           null,
           null,
@@ -87,6 +78,15 @@
       },
       "/root/FoodDecider1000/app/controllers/application_controller.rb": {
         "lines": [
+          1,
+          null
+        ]
+      },
+      "/root/FoodDecider1000/app/models/project.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           1,
           null
         ]
@@ -190,6 +190,6 @@
         }
       }
     },
-    "timestamp": 1681762509
+    "timestamp": 1681766117
   }
 }
