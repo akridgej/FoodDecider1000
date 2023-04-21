@@ -4,7 +4,7 @@
 <style>
 table, th, td {border: 1px solid black; text-align: center; word-wrap: break-word; width: 600px}
 h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
-btn-primary {display: inline-block; margin: 0 20px; text-align: center;}
+button_to {data-inline: true}
 </style>
 </head>
 <body>
@@ -31,13 +31,13 @@ btn-primary {display: inline-block; margin: 0 20px; text-align: center;}
         <td>
         <% if user_signed_in? %>
           <%= button_to "Show Item", project, :id => "open-contacts-dialog-btn",
-            :class => "btn btn-primary", :method => :get %>
+            :class => "btn btn-primary", :method => :get%>
           <p></p>
           <%= button_to "Edit Item", edit_project_path(project), :id => "open-contacts-dialog-btn",
-            :class => "btn btn-primary", :method => :get %>
+            :class => "btn btn-primary", :method => :get%>
           <p></p>
           <%= button_to "Delete Item", project, :id => "open-contacts-dialog-btn",
-            :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+            :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' }%></td>
        <% end %>  
       </tr>
     <% end %>

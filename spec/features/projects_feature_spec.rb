@@ -43,9 +43,7 @@ RSpec.feature "Projects", type: :feature do
 
     context "Login" do
       scenario "should sign up" do
-        visit root_path
-        click_button("Account")
-        click_button("Sign Up")
+        visit new_user_registration_path
         within("form") do
           fill_in "Email", with: "testing@test.com"
           fill_in "Password", with: "123456"

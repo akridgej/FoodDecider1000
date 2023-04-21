@@ -13,6 +13,7 @@
     <style>
       h1 {text-align: center; border-style: solid; border-color: black; background-color: blue; color: white;}
       container {border-style: solid;}
+      h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
     </style>
   </head>
 
@@ -30,7 +31,9 @@
     </div>
     <p></p>
     <div class="container" style="border: 3px solid black;">
-    <p></p>
+      <h2>Restaurants</h2>
+      <%= render 'layouts/restaurants' %>
+      <p></p>
     </div>
   </body>
 </html>
