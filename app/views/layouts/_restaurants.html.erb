@@ -7,18 +7,14 @@ button {data-inline="true";}
 </style>
 </head>
 <body>
-    <button class="btn btn-primary" onclick=root_path>American</button>
-    <button class="btn btn-primary" onclick=root_path>Asian</button>
-    <button class="btn btn-primary" onclick=root_path>Italian</button>
-    <button class="btn btn-primary" onclick=root_path>Dessert</button>
-    <button class="btn btn-primary" onclick=root_path>Other</button>
-    
-    <% title = ["Arby's", "Subway"] %>
-    <% category = ["American", "American"] %>
-    <% description = ["We have the meats", "We got the subs"] %>
+    <button class="btn btn-primary" onclick=sortTable(1)>American</button>
+    <button class="btn btn-primary" onclick=sortTable(1)>Asian</button>
+    <button class="btn btn-primary" onclick=sortTable(1)>Italian</button>
+    <button class="btn btn-primary" onclick=sortTable(1)>Dessert</button>
 
-    <p></p>
-    <table>
+    <% restaurant1 = Restaurant.new(title: "Arby's", category: "American", description: "We have the meats") %>
+    <% restaurant2 = Restaurant.new(title: "Subway", category: "Italian", description: "We have the sands") %>
+    <table id="restaurant">
         <thead>
             <tr>
                 <th>Restaurant</th>
@@ -27,14 +23,72 @@ button {data-inline="true";}
             </tr>
         </thead>
         <tbody>
-            <% title.each do |title| %>
+            <% Restaurant.all.each do |restaurant| %>
                 <tr>
-                    <td><%= title %></td>
-                    <td><%= category %></td>
-                    <td><%= description %></td>
+                    <td><%= restaurant.title %></td>
+                    <td><%= restaurant.category %></td>
+                    <td><%= restaurant.description %></td>
                 </tr>
             <% end %>
         </tbody>
     </table>
 </body>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("restaurant");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++; 
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
 </html>
