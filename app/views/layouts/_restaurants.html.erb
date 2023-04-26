@@ -7,13 +7,10 @@ button {data-inline="true";}
 </style>
 </head>
 <body>
-    <button class="btn btn-primary" onclick=sortTable(1)>American</button>
-    <button class="btn btn-primary" onclick=sortTable(1)>Asian</button>
-    <button class="btn btn-primary" onclick=sortTable(1)>Italian</button>
-    <button class="btn btn-primary" onclick=sortTable(1)>Dessert</button>
+    <button class="btn btn-primary" onclick=sortTable(0)>Sort By Restaurant</button>
+    <button class="btn btn-primary" onclick=sortTable(1)>Sort By Category</button>
+    <p></p>
 
-    <% restaurant1 = Restaurant.new(title: "Arby's", category: "American", description: "We have the meats") %>
-    <% restaurant2 = Restaurant.new(title: "Subway", category: "Italian", description: "We have the sands") %>
     <table id="restaurant">
         <thead>
             <tr>

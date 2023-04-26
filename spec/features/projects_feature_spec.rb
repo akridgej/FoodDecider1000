@@ -25,19 +25,6 @@ RSpec.feature "Projects", type: :feature do
         end
         click_button "Update Project"
         expect(page).to have_content("")
-
-        within("form") do
-          fill_in "Restaurant", with: ""
-        end
-        click_button "Update Project"
-        expect(page).to have_content("")
-
-        within("form") do
-          fill_in "Rating", with: ""
-        end
-        click_button "Update Project"
-        expect(page).to have_content("")
-
       end
     end
 
@@ -71,7 +58,7 @@ RSpec.feature "Projects", type: :feature do
       end
 
       scenario "should be successful" do
-         within "form" do
+         within("form") do
             fill_in "Restaurant", with: "New Restaurant"
             fill_in "Combo", with: "New combo"
             fill_in "Rating", with: 8

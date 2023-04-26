@@ -4,7 +4,6 @@
 <style>
 table, th, td {border: 1px solid black; text-align: center; word-wrap: break-word; width: 600px}
 h2 {text-align: center; background-color: green; border: 2px solid black; color: white}
-button_to {data-inline: true}
 </style>
 </head>
 <body>
@@ -37,8 +36,9 @@ button_to {data-inline: true}
             :class => "btn btn-primary", :method => :get%>
           <p></p>
           <%= button_to "Delete Item", project, :id => "open-contacts-dialog-btn",
-            :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' }%></td>
-       <% end %>  
+            :class => "btn btn-primary", :method => :delete, data: { confirm: 'Are you sure?' }%>
+       <% end %></td>
+
       </tr>
     <% end %>
   </tbody>
