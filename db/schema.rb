@@ -12,19 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2023_04_21_202909) do
 
-  create_table "details", force: :cascade do |t|
-    t.string "category"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "eateries", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.text "restaurant"
     t.text "foodCombo"

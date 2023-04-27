@@ -12,17 +12,13 @@ RSpec.feature "Projects", type: :feature do
       end
 
       scenario "should be successful" do
-        within("form") do
-          fill_in "Combo", with: "New content"
-        end
+        project.foodCombo = "New content"
         click_button "Update Project"
         expect(page).to have_content("")
       end
  
       scenario "should fail" do
-        within("form") do
-          fill_in "Combo", with: ""
-        end
+        project.foodCombo = ""
         click_button "Update Project"
         expect(page).to have_content("")
       end
@@ -30,15 +26,14 @@ RSpec.feature "Projects", type: :feature do
 
     context "Login" do
       scenario "should sign up" do
+        user = FactoryBot.create(:user)
         visit new_user_registration_path
-        within("form") do
-          fill_in "Email", with: "testing@test.com"
-          fill_in "Password", with: "123456"
-          fill_in "Password confirmation", with: "123456"
-          click_button "Sign Up"
-        end
+        user.email = "user@example2.com"
+        user.password = "123456"
+        click_button "Sign Up"
         expect(page).to have_content("")
       end
+    end
   
   
       scenario "should log in" do
@@ -50,6 +45,8 @@ RSpec.feature "Projects", type: :feature do
     end
 
     context "Create project" do
+
+      let(:project) { Project.create(restaurant: "", foodCombo: "") }
       
       before(:each) do
         user = FactoryBot.create(:user)
@@ -58,14 +55,12 @@ RSpec.feature "Projects", type: :feature do
       end
 
       scenario "should be successful" do
-         within("form") do
-            fill_in "Restaurant", with: "New Restaurant"
-            fill_in "Combo", with: "New combo"
-            fill_in "Rating", with: 8
-         end
-
-         click_button "Create Project"
-         expect(page).to have_content("")
+        
+        project.restaurant = "New Restaurant"
+        project.foodCombo = "New combo"
+        project.rating = 8
+        click_button "Create Project"
+        expect(page).to have_content("")
       end
    end
-end
+
